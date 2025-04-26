@@ -1,0 +1,37 @@
+// Breakpoints (rem = px / 16)
+$breakpoint-desktop: 90rem; // 1440px
+$breakpoint-tablet: 48rem; // 768px
+$breakpoint-mobile: 24.375rem; // 390px
+
+// Layout margins
+$margin-desktop: 6rem; // 96px
+$margin-tablet: 1.5rem; // 24px
+$margin-mobile: 1rem; // 16px
+
+// Gutters
+$gutter-desktop: 2rem; // 32px
+$gutter-tablet: 1.5rem; // 24px
+$gutter-mobile: 1rem; // 16px
+
+// Color palette
+$color-primary: #0049ff;
+$color-secondary: #f4f4f4;
+$color-title: #3D464D;
+$color-text: #1a1a1a; // Update color text with one color here and in figma as well
+$color-border: #dcdcdc;
+
+// Brand colors
+$brand-blue: #009FE8;
+$brand-blue-lite: #F2F7FA;
+$heading-blue: #02244C;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 3rem;
+
+// Font sizes
+$font-sm: 0.875rem;
+$font-md: 1rem;
+$font-lg: 1.25rem;

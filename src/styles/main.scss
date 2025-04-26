@@ -1,0 +1,39 @@
+// Order matters: variables first
+@use './variables' as *;
+@use './mixins' as *;
+@use './reset';
+
+#root {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    margin-inline: auto;
+    text-align: center;
+    background-color: $brand-blue-lite;
+  }
+
+  header {
+    grid-area: header;
+    height: 2rem;
+    background-color: $heading-blue;
+  }
+
+  main {
+    margin: 0 auto;
+    h1 {
+        font-size: 1.375rem; // 22px
+        text-transform: uppercase;
+        color: $color-title;
+        padding: $spacing-md;
+      }
+  }
+
+  footer {
+    grid-area: footer;
+    font-size: small;
+  }

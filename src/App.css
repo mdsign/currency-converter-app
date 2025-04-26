@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background-color: #77D49F;
+}
+
+h1 {
+  font-size: 42px;
+  color: #02583A;
+}
+
+h1:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
