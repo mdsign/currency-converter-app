@@ -1,8 +1,15 @@
+import EUR from "../assets/flags/EUR.svg";
+import USD from "../assets/flags/USD.svg";
+import CHF from "../assets/flags/CHF.svg";
+import GBP from "../assets/flags/GBP.svg";
+import JPY from "../assets/flags/JPY.svg";
+import CAD from "../assets/flags/CAD.svg";
+
 export const currencyFlagMap: Record<string, string> = {
-  EUR: "/src/assets/flags/EUR.svg",
-  USD: "/src/assets/flags/USD.svg",
-  //   CHF: "/src/assets/flags/CHF.svg",
-  //   GBP: "/src/assets/flags/GBP.svg",
-  //   JPY: "/src/assets/flags/JPY.svg",
-  //   CAD: "/src/assets/flags/CAD.svg",
+  EUR,
+  USD,
+  CHF,
+  GBP,
+  JPY,
+  CAD,
 };

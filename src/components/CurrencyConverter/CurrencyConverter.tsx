@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CurrencyConverter.module.scss";
 import classNames from "classnames";
+import { CurrencyDropdown } from "./CurrencyDropdown";
 import { CurrencyConverterProps, CurrencyCode, ExchangeRates } from "./types";
 import { defaultRates, defaultCurrencies } from "../../utils/currency";
 import { currencyFlagMap } from "../../utils/flagUtils";
@@ -14,10 +15,10 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   translation,
 }) => {
   const [amount, setAmount] = useState(inputValue);
-  const [base, setBase] = useState<CurrencyCode>("EUR");
-  const [target, setTarget] = useState<CurrencyCode>("USD");
+  const [baseCurrency, setBaseCurrency] = useState<CurrencyCode>("EUR");
+  const [targetCurrency, setTargetCurrency] = useState<CurrencyCode>("USD");
 
-  const pairKey = `${base}-${target}` as keyof ExchangeRates;
+  const pairKey = `${baseCurrency}-${targetCurrency}` as keyof ExchangeRates;
   const rate = (rates as ExchangeRates)[pairKey] ?? 0;
   const converted = amount * rate;
 
@@ -43,65 +44,28 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
             aria-label="Amount to convert"
           />
         </div>
-        <div className={styles.formField}>
-          <label>{translation.from}</label>
-          <div className={styles.currencyDropdown}>
-            <img
-              src={currencyFlagMap[base]}
-              alt=""
-              aria-hidden="true"
-              className={styles.flag}
-            />
-            <select
-              value={base}
-              onChange={(e) => setBase(e.target.value as CurrencyCode)}
-            >
-              {currencies.map((currency) => (
-                <option key={currency} value={currency}>
-                  {currency}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-        <div className={styles.formField}>
-          <label>{translation.to}</label>
-          <div className={styles.currencyDropdown}>
-            <img
-              src={currencyFlagMap[target]}
-              alt=""
-              aria-hidden="true"
-              className={styles.flag}
-            />
-            <select
-              value={target}
-              onChange={(e) => setTarget(e.target.value as CurrencyCode)}
-            >
-              {currencies.map((currency) => (
-                <option key={currency} value={currency}>
-                  {currency}
-                </option>
-              ))}
-            </select>
-          </div>
-          {/* <select
-            value={target}
-            onChange={(e) => setTarget(e.target.value as CurrencyCode)}
-          >
-            {currencies.map(({ code, label }) => (
-              <option key={code} value={code}>
-                {label}
-              </option>
-            ))}
-          </select> */}
-        </div>
+        <CurrencyDropdown
+          label={translation.from}
+          value={baseCurrency}
+          currencies={currencies}
+          onChange={(value) => setBaseCurrency(value)}
+          currencyFlagMap={currencyFlagMap}
+        />
+
+        <CurrencyDropdown
+          label={translation.to}
+          value={targetCurrency}
+          currencies={currencies}
+          onChange={(value) => setTargetCurrency(value)}
+          currencyFlagMap={currencyFlagMap}
+        />
       </div>
       <fieldset className={styles.result}>
         <legend>
           <span className={styles.baseAmount}>{amount}</span>
-          <span className={styles.baseCurrency}>{base} =</span>
+          <span className={styles.baseCurrency}>{baseCurrency} =</span>
         </legend>
-        {converted.toFixed(4)} {target}
+        {converted.toFixed(4)} {targetCurrency}
       </fieldset>
     </div>
   );
