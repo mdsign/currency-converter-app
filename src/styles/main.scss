@@ -1,4 +1,3 @@
-// Order matters: variables first
 @use './variables' as *;
 @use './mixins' as *;
 @use './reset';
@@ -9,26 +8,75 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
-    "header"
-    "main"
-    "footer";
+      "header"
+      "main"
+      "footer";
     margin-inline: auto;
     text-align: center;
     background-color: $brand-blue-lite;
   }
-
+  
+  .app {
+    --primary-color: #009FE8;
+    --secondary-color: #F2F7FA;
+    --background-color: #FFFFFF;
+    --label-color:  #232629;
+    --input-background: #FFFFFF;
+    --input-border: #60707B;
+    --input-value: #232629;
+    --input-focus: #000000;
+    
+  }
+  
+  .app.dark {
+    --primary-color: #009FE8;
+    --secondary-color: #F2F7FA;
+    --background-color: #02244C;
+    --label-color: #F5F5F5;
+    --input-background: #F2F7FA;
+    --input-border: #666666;
+    --input-value: #232629;
+    --input-focus: #FFFFFF;
+  }
   header {
     grid-area: header;
-    height: 2rem;
     background-color: $heading-blue;
-  }
+    padding: 1rem;
+    .header-content {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 $spacing-md;
+        display: flex;
+        justify-content: flex-end;
+      }
+      
+      .header-actions {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.8rem;
+        color: $grey3;
+      }
+      
+      .action-item {
+        a {
+          color: $grey3;
+          cursor: pointer;
+          transition: color 0.3s ease;
+      
+          &:hover {
+            color: $color-white;
+          }
+        }
+      }
+ }
 
   main {
     margin: 0 auto;
     h1 {
         font-size: 1.375rem; // 22px
         text-transform: uppercase;
-        color: $color-title;
+        color: $color-grey2;
         padding: $spacing-md;
       }
   }

@@ -11,11 +11,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   inputValue = 1,
   onChange,
   className,
-  labels = {
-    amount: "Amount",
-    baseCurrency: "From",
-    targetCurrency: "To",
-  },
+  translation,
 }) => {
   const [amount, setAmount] = useState(inputValue);
   const [base, setBase] = useState<CurrencyCode>("EUR");
@@ -39,7 +35,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
         aria-label="Currency Converter"
       >
         <div className={styles.formField}>
-          <label>{labels.amount}</label>
+          <label>{translation.amount}</label>
           <input
             type="number"
             value={amount}
@@ -48,7 +44,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
           />
         </div>
         <div className={styles.formField}>
-          <label>{labels.baseCurrency}</label>
+          <label>{translation.from}</label>
           <div className={styles.currencyDropdown}>
             <img
               src={currencyFlagMap[base]}
@@ -69,7 +65,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
           </div>
         </div>
         <div className={styles.formField}>
-          <label>{labels.targetCurrency}</label>
+          <label>{translation.to}</label>
           <div className={styles.currencyDropdown}>
             <img
               src={currencyFlagMap[target]}

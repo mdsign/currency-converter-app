@@ -1,23 +1,11 @@
 @use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
 
-.currencyConverterWrapper {
-  background-color: #FFFFFF;
+.currencyConverterWrapper {  
+  background-color: var(--background-color);
+  transition: background-color 0.5s, color 0.5s;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(148, 148, 148, 0.2), 0 6px 20px 0 rgba(122, 122, 122, 0.19);
-  gap: $gutter-mobile;
-  margin-inline: $margin-mobile;
   padding: $spacing-md;
-
-  @include respond-to(tablet) {
-    margin-inline: $margin-tablet;
-    gap: $gutter-tablet;
-  }
-
-  @include respond-to(desktop) {   
-    margin-inline: $margin-desktop;
-    gap: $gutter-desktop;    
-  }
 }
 
 .formContainer {
@@ -32,34 +20,28 @@
 
     label {
       font-size: $font-md;
+      color: var(--label-color);
     }
     input {
       padding:  $spacing-sm;
-      border: 1px solid $color-border;
+      border: 1px solid var(--input-border);
       font-size: $font-sm;
       border-radius: 0.25rem;
       width: fit-content;
-      &:focus-within {
-        border-color: $brand-blue;
-        outline: 2px solid transparent;
-        outline-offset: 2px;
-      }
+      color: var(--input-value);
+      background-color: var(--input-background);
     }
     
-
     .currencyDropdown {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.5rem 1rem;
-      border: 1px solid $color-border;
+      border: 1px solid var(--input-border);
       border-radius: 0.25rem;
-      background-color: #fff;
-    
+      background-color: var(--input-background);
       &:focus-within {
-        border-color: $brand-blue;
-        outline: 2px solid transparent;
-        outline-offset: 2px;
+        border: 1px solid var(--input-focus);
       }
       
       select {
@@ -67,8 +49,8 @@
         background: transparent;
         font-size: $font-md;
         font-family: inherit;
-        color: $color-text;
-        padding: 0.5rem 1rem;
+        color: var(--input-value);
+        padding: 0.5rem 2rem 0.5rem 0.25rem;
         appearance: none;
         outline: none;
         cursor: pointer;
@@ -100,19 +82,20 @@
 }
 
 .result {
-  border: 2px solid $brand-blue;
-  border-radius: 10px;
+  background-color: var(--input-background);
+  border: 2px solid var(--primary-color);
+  border-radius: 0.313rem;
   margin-top: 1rem;
-  padding: 1rem 1.281rem;
+  padding: 0.75rem 1.281rem;
   font-size: $font-lg;
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;    
 }
 
 legend {
-  background-color: $brand-blue;
-  padding: 0.25rem;
-  color: $brand-blue-lite;
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  color: var(--secondary-color);
   border-radius: 0.25rem;
   font-size: $font-md;
 }
@@ -120,6 +103,3 @@ legend {
 .baseAmount {
   padding-right: $spacing-xs;
 }
-
-
-

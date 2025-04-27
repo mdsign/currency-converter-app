@@ -4,6 +4,12 @@ export interface ExchangeRates {
   [pair: string]: number;
 }
 
+interface Translation {
+  amount: string;
+  from: string;
+  to: string;
+}
+
 export interface CurrencyConverterProps {
   rates?: ExchangeRates;
   currencies?: CurrencyCode[];
@@ -16,4 +22,5 @@ export interface CurrencyConverterProps {
     targetCurrency?: string;
     result?: string;
   };
+  translation: Translation;
 }
