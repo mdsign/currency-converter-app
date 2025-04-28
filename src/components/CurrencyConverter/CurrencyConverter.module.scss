@@ -27,12 +27,12 @@
     align-items: flex-start;
     width: 100%;
 
-    label {
+    .formFieldLabel {
       font-size: $font-md;
       color: var(--label-color);
     }
 
-    input[type="number"],
+    .currencyInput,
     .currencyDropdown {
       border: 1px solid var(--input-border);
       border-radius: 0.25rem;
@@ -47,12 +47,12 @@
       &:focus-within,
       &:focus {
         border: 1px solid var(--input-focus);
-        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        box-shadow: 0 0 0 3px var(--focus-shadow);
         outline: none;
       }
     }
 
-    input[type="number"] {
+    .currencyInput {
       padding: $spacing-sm;
       font-size: $font-md;
       color: var(--input-value);
@@ -76,8 +76,7 @@
       .selectWrapper {
         position: relative;
         flex: 1;
-
-        select {          
+        .selectInput {          
           border: none;
           background: transparent;
           font-size: $font-md;
@@ -114,7 +113,6 @@
   }
 }
 
-
 .result {
   background-color: var(--input-background);
   border: 2px solid var(--primary-color);
@@ -123,17 +121,22 @@
   padding: 0.75rem 1.281rem;
   font-size: $font-lg;
   font-weight: 500;
-  text-align: left;    
-}
+  text-align: left;
+  &:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px var(--focus-shadow);
+    background-color: var(--secondary-color);
+  }
 
-legend {
-  background-color: var(--primary-color);
-  padding: 0.25rem 0.75rem;
-  color: var(--secondary-color);
-  border-radius: 0.25rem;
-  font-size: $font-md;
-}
-
-.baseAmount {
-  padding-right: $spacing-xs;
+  .resultBase {
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    color: var(--secondary-color);
+    border-radius: 0.25rem;
+    font-size: $font-md;
+    .resultBaseValue {
+      padding-right: $spacing-xs;
+    }
+  }  
 }

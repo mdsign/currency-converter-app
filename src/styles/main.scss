@@ -1,5 +1,4 @@
 @use './variables' as *;
-@use './mixins' as *;
 @use './reset';
 
 #root {
@@ -25,6 +24,7 @@
     --input-border: #60707B;
     --input-value: #232629;
     --input-focus: #000000;
+    --focus-shadow: #007bff40;
     
   }
   
@@ -37,6 +37,7 @@
     --input-border: #666666;
     --input-value: #232629;
     --input-focus: #FFFFFF;
+    --focus-shadow: #007bff40;
   }
   header {
     grid-area: header;

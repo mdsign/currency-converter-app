@@ -36,8 +36,9 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
         aria-label="Currency Converter"
       >
         <div className={styles.formField}>
-          <label>{translation.amount}</label>
+          <label className={styles.formFieldLabel}>{translation.amount}</label>
           <input
+            className={styles.currencyInput}
             type="number"
             value={amount}
             onChange={handleAmountChange}
@@ -60,10 +61,15 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
           currencyFlagMap={currencyFlagMap}
         />
       </div>
-      <fieldset className={styles.result}>
-        <legend>
-          <span className={styles.baseAmount}>{amount}</span>
-          <span className={styles.baseCurrency}>{baseCurrency} =</span>
+      <fieldset
+        className={styles.result}
+        tabIndex={0}
+        role="status"
+        aria-live="polite"
+      >
+        <legend className={styles.resultBase}>
+          <span className={styles.resultBaseValue}>{amount}</span>
+          <span>{baseCurrency} =</span>
         </legend>
         {converted.toFixed(4)} {targetCurrency}
       </fieldset>

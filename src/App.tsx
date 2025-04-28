@@ -9,20 +9,11 @@ import { CurrencyConverter } from "./components/CurrencyConverter/CurrencyConver
 function App() {
   const appTitle = "Currency Converter";
 
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    const storedTheme = localStorage.getItem("theme");
-    return storedTheme === "dark" || storedTheme === "light"
-      ? storedTheme
-      : "light";
-  });
+  const [theme, setTheme] = useState<"light" | "dark">("light");
   const [language, setLanguage] = useState<Language>("en");
 
   const toggleTheme = () => {
-    setTheme((prev) => {
-      const newTheme = prev === "light" ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      return newTheme;
-    });
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   const toggleLanguage = () => {

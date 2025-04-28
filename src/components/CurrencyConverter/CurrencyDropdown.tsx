@@ -27,7 +27,7 @@ export function CurrencyDropdown({
 }: CurrencyDropdownProps) {
   return (
     <div className={styles.formField}>
-      <label>{label}</label>
+      <label className={styles.formFieldLabel}>{label}</label>
       <div className={styles.currencyDropdown}>
         <img
           src={currencyFlagMap[value]}
@@ -37,6 +37,7 @@ export function CurrencyDropdown({
         />
         <div className={styles.selectWrapper}>
           <select
+            className={styles.selectInput}
             value={value}
             onChange={(e) => onChange(e.target.value as CurrencyCode)}
           >
