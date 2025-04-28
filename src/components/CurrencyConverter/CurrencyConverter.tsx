@@ -36,14 +36,25 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
         aria-label="Currency Converter"
       >
         <div className={styles.formField}>
-          <label className={styles.formFieldLabel}>{translation.amount}</label>
+          <label htmlFor="amount" className={styles.formFieldLabel}>
+            {translation.amount}
+          </label>
           <input
+            id="amount"
+            name="amount"
             className={styles.currencyInput}
             type="number"
             value={amount}
             onChange={handleAmountChange}
+            aria-describedby="amountInputHelp"
             aria-label="Amount to convert"
+            min="1"
+            inputMode="decimal"
+            placeholder="Enter amount"
           />
+          <span id="amountInputHelp" className={styles.visuallyHidden}>
+            Enter the amount you want to convert
+          </span>
         </div>
         <CurrencyDropdown
           label={translation.from}
@@ -58,6 +69,8 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
           value={targetCurrency}
           currencies={currencies}
           onChange={(value) => setTargetCurrency(value)}
+          isTargetDropdown={true}
+          baseCurrency={baseCurrency}
           currencyFlagMap={currencyFlagMap}
         />
       </div>
