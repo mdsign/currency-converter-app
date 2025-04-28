@@ -79,12 +79,17 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
         tabIndex={0}
         role="status"
         aria-live="polite"
+        title={`Conversion result: ${amount} ${baseCurrency} = ${converted.toFixed(
+          4
+        )} ${targetCurrency}`}
       >
         <legend className={styles.resultBase}>
           <span className={styles.resultBaseValue}>{amount}</span>
           <span>{baseCurrency} =</span>
         </legend>
-        {converted.toFixed(4)} {targetCurrency}
+        <output className={styles.resultValue}>
+          {converted.toFixed(4)} {targetCurrency}
+        </output>
       </fieldset>
     </div>
   );
