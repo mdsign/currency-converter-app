@@ -6,11 +6,9 @@ export interface ExchangeRates {
 
 export type Language = "en" | "de";
 
-interface Translation {
-  amount: string;
-  from: string;
-  to: string;
-}
+export type CurrencyLabels = {
+  [key in CurrencyCode]: string;
+};
 
 export interface CurrencyConverterProps {
   rates?: ExchangeRates;
