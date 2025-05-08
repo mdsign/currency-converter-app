@@ -3,7 +3,7 @@ import {
   CurrencyCode,
   ExchangeRates,
 } from "./components/CurrencyConverter/types";
-import { getTranslation, Language } from "./i18n";
+import { Language } from "./components/CurrencyConverter/types";
 import { CurrencyConverter } from "./components/CurrencyConverter/CurrencyConverter";
 
 function App() {
@@ -19,8 +19,6 @@ function App() {
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === "en" ? "de" : "en"));
   };
-
-  const t = getTranslation(language);
 
   const newRates: ExchangeRates = {
     "EUR-USD": 1.6,
@@ -63,7 +61,7 @@ function App() {
       <main className={`app ${theme}`}>
         <h1>{appTitle}</h1>
         <CurrencyConverter
-          translation={t}
+          language={language}
           rates={newRates}
           currencies={newCurrencies}
         />

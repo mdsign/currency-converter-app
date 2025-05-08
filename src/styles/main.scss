@@ -13,11 +13,11 @@
       "footer";
     margin-inline: auto;
     text-align: center;
-    background-color: $brand-blue-lite;
+    background-color: $background-blue-100;
   }
   
   .app {
-    --primary-color: #009FE8;
+    --primary-color: #033E81;
     --secondary-color: #F2F7FA;
     --background-color: #FFFFFF;
     --label-color:  #232629;
@@ -26,23 +26,27 @@
     --input-value: #232629;
     --input-focus: #000000;
     --focus-shadow: #007bff40;
+    --result-background: #FFFFFF;
+    --result-value: #232629;
     
   }
   
   .app.dark {
-    --primary-color: #009FE8;
-    --secondary-color: #F2F7FA;
-    --background-color: #02244C;
-    --label-color: #F5F5F5;
+    --primary-color: #57CAFF;
+    --secondary-color: #000000;
+    --background-color: #4C5961;
+    --label-color: #FFFFFF;
     --input-background: #F2F7FA;
-    --input-border: #666666;
+    --input-border: #57CAFF;
     --input-value: #232629;
     --input-focus: #FFFFFF;
     --focus-shadow: #007bff40;
+    --result-background: #1E3C4D;
+    --result-value: #FFFFFF;
   }
   header {
     grid-area: header;
-    background-color: $heading-blue;
+    background-color: $heading-blue-700;
     padding: 1rem;
     .header-content {
         width: 100%;
@@ -57,17 +61,19 @@
         display: flex;
         gap: 1.5rem;
         font-size: 0.8rem;
-        color: $grey3;
+        color: $gray50;
       }
       
       .action-item {
         a {
-          color: $grey3;
+          color: $gray50;
           cursor: pointer;
           transition: color 0.3s ease;
+          text-decoration: none;
       
           &:hover {
-            color: $color-white;
+            color: $white;
+            text-decoration: underline;
           }
         }
       }
@@ -80,7 +86,7 @@
     h1 {
         font-size: 1.375rem; // 22px
         text-transform: uppercase;
-        color: $color-grey2;
+        color: $gray800;
         padding: $spacing-md;
       }
   }

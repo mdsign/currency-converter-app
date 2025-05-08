@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./CurrencyConverter.module.scss";
 import classNames from "classnames";
+import { getTranslation } from "./i18n";
 import { CurrencyDropdown } from "./CurrencyDropdown";
 import { CurrencyConverterProps, CurrencyCode, ExchangeRates } from "./types";
 import { defaultRates, defaultCurrencies } from "../../utils/currency";
@@ -12,7 +13,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   inputValue = 1,
   onChange,
   className,
-  translation,
+  language,
 }) => {
   const [amount, setAmount] = useState(inputValue);
   const [baseCurrency, setBaseCurrency] = useState<CurrencyCode>("EUR");
@@ -21,6 +22,8 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   const pairKey = `${baseCurrency}-${targetCurrency}` as keyof ExchangeRates;
   const rate = (rates as ExchangeRates)[pairKey] ?? 0;
   const converted = amount * rate;
+
+  const translations = getTranslation(language);
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
@@ -37,7 +40,7 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
       >
         <div className={styles.formField}>
           <label htmlFor="amount" className={styles.formFieldLabel}>
-            {translation.amount}
+            {translations.amount}
           </label>
           <input
             id="amount"
@@ -57,21 +60,23 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
           </span>
         </div>
         <CurrencyDropdown
-          label={translation.from}
+          label={translations.from}
           value={baseCurrency}
           currencies={currencies}
           onChange={(value) => setBaseCurrency(value)}
           currencyFlagMap={currencyFlagMap}
+          currencyLabels={translations.currencies}
         />
 
         <CurrencyDropdown
-          label={translation.to}
+          label={translations.to}
           value={targetCurrency}
           currencies={currencies}
           onChange={(value) => setTargetCurrency(value)}
           isTargetDropdown={true}
           baseCurrency={baseCurrency}
           currencyFlagMap={currencyFlagMap}
+          currencyLabels={translations.currencies}
         />
       </div>
       <fieldset

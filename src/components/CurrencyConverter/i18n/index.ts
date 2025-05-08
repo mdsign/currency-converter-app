@@ -1,7 +1,6 @@
 import en from "./en";
 import de from "./de";
-
-export type Language = "en" | "de";
+import { Language } from "../types";
 
 const translations = {
   en,

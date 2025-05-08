@@ -4,6 +4,8 @@ export interface ExchangeRates {
   [pair: string]: number;
 }
 
+export type Language = "en" | "de";
+
 interface Translation {
   amount: string;
   from: string;
@@ -16,11 +18,5 @@ export interface CurrencyConverterProps {
   inputValue?: number;
   onChange?: (value: number) => void;
   className?: string;
-  labels?: {
-    amount?: string;
-    baseCurrency?: string;
-    targetCurrency?: string;
-    result?: string;
-  };
-  translation: Translation;
+  language: Language;
 }

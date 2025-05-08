@@ -3,6 +3,10 @@ $breakpoint-desktop: 64rem; // 1024px
 $breakpoint-tablet: 48rem; // 768px
 $breakpoint-mobile: 24.375rem; // 390px
 
+// App width
+$app-width-mobile: 22.375rem;
+$app-width-desktop: 60rem;
+
 // Layout margins
 $margin-desktop: 6rem; // 96px
 $margin-tablet: 1.5rem; // 24px
@@ -11,28 +15,34 @@ $margin-mobile: 1rem; // 16px
 // Gutters
 $gutter-desktop: 2rem; // 32px
 $gutter-tablet: 1.5rem; // 24px
-$gutter-mobile: 1rem; // 16px
+$gutter-mobile: 1.5rem; // 24px
 
 // Color palette
-$color-white: #FFFFFF;
-$color-grey1: #60707B;
-$color-grey2: #232629;
-$grey3: #aab0bd;
-$grey4: #94949433;
-$grey5: #7a7a7a30;
+$white: #FFFFFF;
+$gray50: #EEF0F2;
+$gray500: #60707B;
+$gray800: #232629;
+
+$shadow-grey-1: rgba(158, 170, 179, 0.2);  // gray300
+$shadow-grey-2: rgba(123, 141, 152, 0.19); // gray400
 
 // Brand colors
-$brand-blue: #009FE8;
-$brand-blue-lite: #F2F7FA;
-$heading-blue: #02244C;
+$heading-blue-700: #033E81;
+$brand-blue-500: #009FE8;
+$background-blue-100: #F2F7FA;
+
 
 // Spacing
 $spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
-$spacing-md: 2rem;
+$spacing-md: 1.5rem;
 $spacing-lg: 3rem;
 
 // Font sizes
 $font-sm: 0.875rem;
 $font-md: 1rem;
 $font-lg: 1.25rem;
+
+// Icons
+$dropdown-arrow-icon: url("data:image/svg+xml,%3Csvg fill='none' stroke='%231a1a1a' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+

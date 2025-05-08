@@ -1,5 +1,5 @@
 import styles from "./CurrencyConverter.module.scss";
-import { CurrencyCode } from "./types";
+import { CurrencyCode, CurrencyLabels } from "./types";
 
 interface CurrencyDropdownProps {
   label: string;
@@ -9,16 +9,8 @@ interface CurrencyDropdownProps {
   isTargetDropdown?: boolean;
   baseCurrency?: CurrencyCode;
   currencyFlagMap: Record<string, string>;
+  currencyLabels: CurrencyLabels;
 }
-
-const currencyLabelMap: Record<CurrencyCode, string> = {
-  EUR: "Euro",
-  USD: "US Dollar",
-  CHF: "Swiss Franc",
-  GBP: "Great Britain Pound",
-  JPY: "Japanese Yen",
-  CAD: "Canadian Dollar",
-};
 
 export function CurrencyDropdown({
   label,
@@ -28,6 +20,7 @@ export function CurrencyDropdown({
   isTargetDropdown,
   baseCurrency,
   currencyFlagMap,
+  currencyLabels,
 }: CurrencyDropdownProps) {
   const supportedPairs = new Set([
     "EUR-USD",
@@ -75,7 +68,7 @@ export function CurrencyDropdown({
                   disabled={isDisabled}
                   aria-disabled={isDisabled}
                 >
-                  {currency} - {currencyLabelMap[currency]}
+                  {currency} - {currencyLabels[currency]}
                 </option>
               );
             })}
