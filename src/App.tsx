@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CurrencyCode,
   ExchangeRates,
@@ -11,6 +11,14 @@ function App() {
 
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [language, setLanguage] = useState<Language>("en");
+
+  useEffect(() => {
+    const root = document.getElementById("root");
+    if (root) {
+      root.classList.remove("light-theme", "dark-theme");
+      root.classList.add(`${theme}-theme`);
+    }
+  }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));

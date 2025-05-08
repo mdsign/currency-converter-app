@@ -20,16 +20,23 @@ $gutter-mobile: 1.5rem; // 24px
 // Color palette
 $white: #FFFFFF;
 $gray50: #EEF0F2;
+$gray300: #9EAAB3;
 $gray500: #60707B;
+$gray600: #4C5961;
 $gray800: #232629;
+$black: #000000;
 
 $shadow-grey-1: rgba(158, 170, 179, 0.2);  // gray300
 $shadow-grey-2: rgba(123, 141, 152, 0.19); // gray400
+$shadow-blue: #007bff40;
 
 // Brand colors
 $heading-blue-700: #033E81;
+$heading-blue-800: #02244C;
+$brand-blue-300: #57CAFF;
 $brand-blue-500: #009FE8;
 $background-blue-100: #F2F7FA;
+$background-blue-800: #1E3C4D;
 
 
 // Spacing
@@ -46,3 +53,39 @@ $font-lg: 1.25rem;
 // Icons
 $dropdown-arrow-icon: url("data:image/svg+xml,%3Csvg fill='none' stroke='%231a1a1a' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
 
+.light-theme {
+    --root-bg-color: #{$background-blue-100};
+}
+
+.dark-theme {
+    --root-bg-color: #{$gray300};
+}
+
+.app.light {
+    --primary-color: #{$heading-blue-700};
+    --secondary-color: #{$white};
+    --background-color: #{$white};
+    --label-color: #{$gray800};
+    --input-background: #{$white};
+    --input-border: #{$gray500};
+    --input-value: #{$gray800};
+    --input-focus: #{$black};
+    --focus-shadow: #{$shadow-blue};
+    --result-background: #{$white};
+    --result-value: #{$gray800};
+     
+  }
+  
+  .app.dark {
+    --primary-color: #{$brand-blue-300};
+    --secondary-color: #{$black};
+    --background-color: #{$gray600};
+    --label-color: #{$white};
+    --input-background: #{$background-blue-100};
+    --input-border: #{$brand-blue-300};
+    --input-value: #{$gray800};
+    --input-focus: #{$brand-blue-500};
+    --focus-shadow: #{$shadow-blue};
+    --result-background: #{$background-blue-800};
+    --result-value: #{$white};
+  }

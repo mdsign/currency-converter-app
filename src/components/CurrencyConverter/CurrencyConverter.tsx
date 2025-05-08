@@ -27,8 +27,12 @@ export const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
 
   const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseFloat(e.target.value);
-    setAmount(value);
-    if (onChange) onChange(value);
+
+    // Prevent NaN or values less than 1
+    const clampedValue = isNaN(value) || value < 1 ? 1 : value;
+
+    setAmount(clampedValue);
+    if (onChange) onChange(clampedValue);
   };
 
   return (

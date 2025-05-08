@@ -13,40 +13,12 @@
       "footer";
     margin-inline: auto;
     text-align: center;
-    background-color: $background-blue-100;
+    background-color: var(--root-bg-color);
   }
   
-  .app {
-    --primary-color: #033E81;
-    --secondary-color: #F2F7FA;
-    --background-color: #FFFFFF;
-    --label-color:  #232629;
-    --input-background: #FFFFFF;
-    --input-border: #60707B;
-    --input-value: #232629;
-    --input-focus: #000000;
-    --focus-shadow: #007bff40;
-    --result-background: #FFFFFF;
-    --result-value: #232629;
-    
-  }
-  
-  .app.dark {
-    --primary-color: #57CAFF;
-    --secondary-color: #000000;
-    --background-color: #4C5961;
-    --label-color: #FFFFFF;
-    --input-background: #F2F7FA;
-    --input-border: #57CAFF;
-    --input-value: #232629;
-    --input-focus: #FFFFFF;
-    --focus-shadow: #007bff40;
-    --result-background: #1E3C4D;
-    --result-value: #FFFFFF;
-  }
   header {
     grid-area: header;
-    background-color: $heading-blue-700;
+    background-color: $heading-blue-800;
     padding: 1rem;
     .header-content {
         width: 100%;
